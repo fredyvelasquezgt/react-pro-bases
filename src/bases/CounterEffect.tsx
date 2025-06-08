@@ -19,9 +19,12 @@ export const CounterEffect = () => {
 
         console.log('%cse llego al valor maximo', 'color:red')
 
-        gsap.to(counterElement.current,{y:-10, duration: 0.2, ease: 'ease.out'}).then( () => {
-            gsap.to(counterElement.current,{y:0, duration: 1, ease: 'bounce.out'})
-        })
+        const tl = gsap.timeline();
+
+        tl.to(counterElement.current,{y:-10, duration: 0.2, ease: 'ease.out'})
+          .to(counterElement.current,{y:0, duration: 1, ease: 'bounce.out'})
+
+       
 
     }, [counter])
 
